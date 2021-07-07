@@ -13,7 +13,6 @@ from transformers import(
     get_linear_schedule_with_warmup,
 )
 
-AVAIL_GPUS = min(1, torch.cuda.device_count())
 
 
 """---
@@ -227,7 +226,7 @@ model = GLUETransformer(
     task_name=dm.task_name,
 )
 
-trainer = Trainer(max_epochs=5, gpus=[5], progress_bar_refresh_rate=0)
+trainer = Trainer()
 start_time = time.time()
 print(start_time)
 trainer.fit(model, dm)
