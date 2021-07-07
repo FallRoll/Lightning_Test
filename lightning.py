@@ -44,6 +44,9 @@ class GLUEDataModule(LightningDataModule):
         self.model_name_or_path = model_name_or_path
         self.task_name = task_name
         self.max_seq_length = max_seq_length
+        self.train_batch_size = train_batch_size
+        self.eval_batch_size = eval_batch_size
+        
         self.text_fields = self.task_text_field_map[task_name]
         self.num_labels = self.glue_task_num_labels[task_name]
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name_or_path, use_fast=True)
