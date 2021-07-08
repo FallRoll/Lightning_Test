@@ -229,7 +229,7 @@ model = GLUETransformer(
     task_name=dm.task_name,
 )
 
-trainer = Trainer()
+trainer = Trainer(max_epochs=2)
 start_time = time.time()
 print(start_time)
 trainer.fit(model, dm)
